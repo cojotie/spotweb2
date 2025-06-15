@@ -1,0 +1,51 @@
+{
+  "version": "1",
+  "templates": [
+    {
+      "name": "Spotweb",
+      "description": "Usenet Spotnet frontend",
+      "platform": "linux",
+      "categories": ["Media"],
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Usenet_logo.svg/320px-Usenet_logo.svg.png",
+      "repository": "jgeusebroek/spotweb",
+      "portmap": "8080:80",
+      "restart_policy": "always",
+      "environment": [
+        {
+          "name": "TZ",
+          "default": "Europe/Amsterdam"
+        },
+        {
+          "name": "SPOTWEB_DB_TYPE",
+          "default": "pdo_mysql"
+        },
+        {
+          "name": "SPOTWEB_DB_HOST",
+          "default": "mysql"
+        },
+        {
+          "name": "SPOTWEB_DB_PORT",
+          "default": "3306"
+        },
+        {
+          "name": "SPOTWEB_DB_NAME",
+          "default": "spotweb"
+        },
+        {
+          "name": "SPOTWEB_DB_USER",
+          "default": "spotweb"
+        },
+        {
+          "name": "SPOTWEB_DB_PASS",
+          "default": "spotweb"
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "./config"
+        }
+      ]
+    }
+  ]
+}
